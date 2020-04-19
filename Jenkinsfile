@@ -17,7 +17,6 @@ pipeline {
                                     print 'password.collect { it }=' + password.collect { it }
                  environment = "test"
                  sh "echo 'Hello testing...'"
-                 sh "unset JAVA_HOME && mvn clean spring-boot:run"
                  sh "curl -XGET 127.0.0.1:9000/welcome"
                       }
                     }
