@@ -17,7 +17,8 @@ pipeline {
                                     print 'password.collect { it }=' + password.collect { it }
                  environment = "test"
                  sh "echo 'Hello testing...'"
-                 sh "cd ./apigee/Billing && mvn clean install -P${environment} -Dusername=${username} -Dpassword=${password} -Doptions=override"
+                 sh "unset JAVA_HOME && mvn clean spring-boot:run"
+                 sh "curl -XGET 127.0.0.1:9000/welcome"
                       }
                     }
             }
